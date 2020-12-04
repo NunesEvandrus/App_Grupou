@@ -6,11 +6,25 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import Routes from './routes';
 
+import {UsuarioProvider} from './contexts/user'
+
 import './services/firebase';
 
 export default function App() {
   return (
-    <Routes />
+    <UsuarioProvider>
+      <Routes />
+    </UsuarioProvider>
+    
   );
 }
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+})
 

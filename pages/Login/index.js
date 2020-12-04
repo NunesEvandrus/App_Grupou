@@ -1,4 +1,4 @@
-import React, {useState} from  'react';
+import React, {useState, useContext} from  'react';
 import {Button, Text, Image, ActivityIndicator} from 'react-native';
 
 
@@ -14,18 +14,39 @@ import {Container, Texto, CaixaLogin,
 
 import logoImg from '../../assets/logo.png';
 
+import {UsuarioContext} from '../../contexts/user';
 const Login =() => {
 
+    const {signIn, signUp} = useContext(UsuarioContext);
+
     const [currentButton, setCurrentButton] = useState('professor');
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("enunes@evandro.com.br");
+    const [password, setPassword] = useState("12345678");
     const [carregando, setCarregando] = useState(false);
 
     function handleSignIn(){        
-        console.warn(email, password);
+
+        try{
+            signIn(email, password)
+        }catch(err){
+            console.warn(err);
+        }       
+        
     }
     function handleSignUp(){        
         setCarregando(true);
+
+        try{
+            signUp(email, password)
+        }catch(err){
+            console.warn(err);
+        }finally
+        {
+            setCarregando(false);
+        }
+
+
+
     }
 
     return(
@@ -34,7 +55,7 @@ const Login =() => {
                 <Image source={logoImg} style={{width: 300, height:100}} />
 
             </Logo>
-            <CaixaTextoChamada>
+            {/* <CaixaTextoChamada>
                 <TextoChamada>
                     Problemas para forma
                 </TextoChamada>
@@ -44,7 +65,7 @@ const Login =() => {
                 <TextoChamada>
                     O <TextoGrupou>Grupou!</TextoGrupou> resolve!
                 </TextoChamada>
-            </CaixaTextoChamada>
+            </CaixaTextoChamada> */}
 
 
             <CaixaLogin>
@@ -61,9 +82,9 @@ const Login =() => {
                     </Botao>
                 </ContainerBotoes>
                 <InputTexto>Email</InputTexto>
-                <Input placeholder="Digite seu email" onChangeText={text => setEmail(text)}></Input>
+                <Input placeholder="Digite seu email" onChangeText={text => setEmail(text)} value={email}></Input>
                 <InputTexto>Senha</InputTexto>
-                <Input placeholder="Digite sua senha" onChangeText={text => setPassword(text)} secureTextEntry={true}></Input>
+                <Input placeholder="Digite sua senha" onChangeText={text => setPassword(text)} secureTextEntry={true} value={password}></Input>
                 <ForgotPassword>Esqueci minha senha.</ForgotPassword>
                 <ContainerButtons>
                     <Buttons invert={true} onPress={()=>{handleSignUp()}}>

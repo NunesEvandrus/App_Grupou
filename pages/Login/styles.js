@@ -11,7 +11,7 @@ export const Container = styled.View`
 `;
 
 export const CaixaLogin = styled.View`
-    height:60%;
+    height:80%;
     width:100%;
     background-color:#fff;
     border-top-right-radius: 25px;
