@@ -4,14 +4,14 @@ export const Container = styled.View`
     background-color:#AB1B71;
     flex:1;
     flex-direction:column;
-    justify-content: flex-end
+    justify-content: flex-end;
     align-items:center;
     padding:10px 10px 0px 10px;
      
 `;
 
 export const CaixaLogin = styled.View`
-    height:65%;
+    height:60%;
     width:100%;
     background-color:#fff;
     border-top-right-radius: 25px;
