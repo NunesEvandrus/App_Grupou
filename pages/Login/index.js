@@ -21,7 +21,7 @@ const Login =() => {
 
     const [currentButton, setCurrentButton] = useState('professor');
     const [email, setEmail] = useState("enunes@evandro.com.br");
-    const [password, setPassword] = useState("12345678");
+    const [password, setPassword] = useState("123456789");
     const [carregando, setCarregando] = useState(false);
 
     function handleSignIn(){        
