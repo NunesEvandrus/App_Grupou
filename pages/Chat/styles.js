@@ -38,7 +38,7 @@ export const ButtonText = styled.Text`
 export const Input = styled.TextInput`
   border: 1px solid #ccc;
   height: 60px;
-  flex:3
+  flex:2
   border-radius:5px;
   padding: 0 20px;
   background-color:#e6e6e6;
